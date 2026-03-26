@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Japan Medical Support by Sato</title>
+  <meta name="description" content="Support for foreign residents in Japan who need help with clinic visits, pharmacy services, and medication information." />
+  <style>
+    :root {
+      --bg: #f7f5f2;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e7e1d8;
+      --accent: #0f172a;
+      --accent-2: #f3f4f6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,0.88);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 16px;
+    }
+
+    .brand-top {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 4px;
+    }
+
+    .brand-main {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .brand-sub {
+      color: var(--muted);
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .hero {
+      padding: 72px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .pill {
+      display: inline-block;
+      background: var(--card);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+    }
+
+    h1 {
+      font-size: clamp(38px, 6vw, 62px);
+      line-height: 1.08;
+      margin: 20px 0 20px;
+      letter-spacing: -0.03em;
+    }
+
+    .lead {
+      font-size: 19px;
+      color: var(--text);
+      max-width: 760px;
+      margin: 0 0 10px;
+    }
+
+    .lead-ja {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: var(--card);
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-cards {
+      display: grid;
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.05);
+    }
+
+    .card-label {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 10px;
+    }
+
+    .card-title {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.25;
+      margin: 0 0 10px;
+    }
+
+    .card-text {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-white {
+      background: var(--card);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 8px;
+    }
+
+    .section-title {
+      font-size: 38px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin: 0 0 18px;
+    }
+
+    .section-lead {
+      font-size: 18px;
+      color: var(--text);
+      margin: 0 0 10px;
+      max-width: 760px;
+    }
+
+    .section-sub {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+      max-width: 760px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .mini-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 8px;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .body {
+      margin-top: 14px;
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    .price {
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+      margin: 0 0 12px;
+    }
+
+    .list-card ul {
+      margin: 16px 0 0;
+      padding-left: 20px;
+    }
+
+    .list-card li {
+      margin-bottom: 10px;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .faq-q {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 0 10px;
+    }
+
+    .contact-box {
+      background: var(--accent);
+      color: white;
+      border-radius: 36px;
+      padding: 40px;
+      box-shadow: 0 18px 60px rgba(15, 23, 42, 0.18);
+    }
+
+    .contact-box .section-label,
+    .contact-box .section-sub,
+    .contact-box .muted {
+      color: #cbd5e1;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 22px;
+    }
+
+    .footer-space {
+      height: 28px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3,
+      .two-col,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .section {
+        padding: 56px 0;
+      }
+
+      .contact-box {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <div>
+        <p class="brand-top">Japan Medical Support by Sato</p>
+        <p class="brand-main">Pharmacist Sato <span class="brand-sub">/ 薬剤師 佐藤</span></p>
+      </div>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#support">Support</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="pill">Medical support for foreign residents in Japan</span>
+          <h1>Making healthcare and pharmacy support in Japan easier to understand</h1>
+          <p class="lead">
+            Support for foreign residents who want clearer guidance before visiting a clinic, using a pharmacy, or understanding medication information in Japan.
+          </p>
+          <p class="lead-ja">
+            日本の医療機関や薬局の利用に不安がある方に向けた、分かりやすいサポートを提供します。
+          </p>
+
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://tally.so/r/EkL8Jo" target="_blank" rel="noreferrer">Send Inquiry</a>
+            <a class="btn btn-secondary" href="#support">View Services</a>
+          </div>
+        </div>
+
+        <div class="hero-cards">
+          <div class="card">
+            <p class="card-label">Main Support</p>
+            <p class="card-title">Visit preparation / Medication explanation / Communication support</p>
+            <p class="card-text">受診前の準備・薬の説明・通訳補助</p>
+          </div>
+
+          <div class="two-col">
+            <div class="card">
+              <p class="card-label">Area</p>
+              <p class="mini-title">Kanagawa / Tokyo</p>
+              <p class="card-text">Online support across Japan</p>
+            </div>
+            <div class="card">
+              <p class="card-label">Languages</p>
+              <p class="mini-title">JP / EN</p>
+              <p class="card-text">Text support: JP / EN / KR / CN</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section section-white">
+      <div class="container">
+        <p class="section-label">About</p>
+        <h2 class="section-title">About Pharmacist Sato</h2>
+        <p class="section-lead">
+          I am a pharmacist with both frontline pharmacy experience and management experience, including store leadership and area management. This service is designed to provide clear and practical support for people who need help understanding healthcare and pharmacy-related matters in Japan.
+        </p>
+        <p class="section-sub">
+          薬剤師としての現場経験に加え、薬局長・エリアマネージャーとしての運営経験も活かしながら、分かりやすく実務的なサポートを目指しています。
+        </p>
+
+        <div class="grid-2">
+          <div class="card">
+            <p class="mini-title">Practical pharmacist experience</p>
+            <p class="muted">Support based on real experience in Japanese pharmacy and healthcare settings.</p>
+          </div>
+          <div class="card">
+            <p class="mini-title">Clear and simple communication</p>
+            <p class="muted">Complex information is explained as clearly and simply as possible.</p>
+          </div>
+          <div class="card">
+            <p class="mini-title">Online-first support</p>
+            <p class="muted">Support is available online, making it easier to assist people across Japan.</p>
+          </div>
+          <div class="card">
+            <p class="mini-title">Preparation before medical visits</p>
+            <p class="muted">We help you organize what to say and what to ask before your appointment.</p>
+          </div>
+        </div>
+
+        <div class="card list-card" style="margin-top: 24px;">
+          <p class="mini-title">Professional Background</p>
+          <ul>
+            <li>Experienced as a pharmacy manager responsible for two stores at the same time in a major listed pharmacy chain</li>
+            <li>Previously worked as an area manager in a major pharmacy chain</li>
+            <li>Handled recruitment interviews and staff-related responsibilities</li>
+            <li>Worked as a managing pharmacist at four different stores</li>
+            <li>Worked at approximately 30 stores in total, with broad on-site experience</li>
+            <li>Received a company president’s award early in career</li>
+            <li>Experienced in individual regulatory guidance, reimbursement revisions, and new store openings</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <p class="section-label">Services</p>
+        <h2 class="section-title">What I Offer</h2>
+
+        <div class="grid-3">
+          <div class="card">
+            <p class="mini-title">Medical &amp; Pharmacy Support</p>
+            <p class="muted">薬局・医療サポート</p>
+            <p class="body">
+              Clear support for navigating clinics, hospitals, and pharmacies in Japan, including visit preparation and communication support.
+            </p>
+            <p class="muted" style="margin-top: 10px;">受診前の準備や、薬局・医療機関で伝える内容の整理をサポートします。</p>
+          </div>
+
+          <div class="card">
+            <p class="mini-title">Support for Foreign Residents in Japan</p>
+            <p class="muted">外国人向けサポート</p>
+            <p class="body">
+              Practical support in easy English and easy Japanese for foreign residents who need help understanding healthcare and pharmacy services in Japan.
+            </p>
+            <p class="muted" style="margin-top: 10px;">日本の医療や薬局の利用に不安がある方に向けたサポートです。</p>
+          </div>
+
+          <div class="card">
+            <p class="mini-title">Document &amp; Explanation Support</p>
+            <p class="muted">文書・説明サポート</p>
+            <p class="body">
+              Help with simplifying prescription labels, medication instructions, and pre-visit notes into a clearer format.
+            </p>
+            <p class="muted" style="margin-top: 10px;">薬袋、処方箋、服薬説明などを分かりやすく整理します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="support" class="section section-white">
+      <div class="container">
+        <p class="section-label">Support</p>
+        <h2 class="section-title">Support for Foreign Residents</h2>
+        <p class="section-lead">Clear support for people who feel unsure about using clinics, hospitals, or pharmacies in Japan.</p>
+        <p class="section-sub">日本の医療機関や薬局の利用に不安がある方向けのサポートです。</p>
+
+        <div class="grid-3">
+          <div class="card">
+            <p class="price">¥3,000 / session</p>
+            <p class="mini-title">Pre-Visit Note Preparation</p>
+            <p class="muted">受診前メモ作成サポート</p>
+            <p class="body">
+              We help organize your symptoms, current medications, and questions into a clear note you can bring to your clinic or hospital visit.
+            </p>
+            <p class="muted" style="margin-top: 10px;">症状、服用中の薬、質問したいことを整理します。</p>
+          </div>
+
+          <div class="card">
+            <p class="price">¥2,500 – ¥4,000</p>
+            <p class="mini-title">Easy English / Easy Japanese Medication Support</p>
+            <p class="muted">薬袋・処方箋・説明文のやさしい英語 / 日本語化</p>
+            <p class="body">
+              We simplify prescription labels, medication instructions, and clinic guidance into easy English or easy Japanese.
+            </p>
+            <p class="muted" style="margin-top: 10px;">薬袋、処方箋、服薬説明、病院案内などを分かりやすく整理します。</p>
+          </div>
+
+          <div class="card">
+            <p class="price">30 min ¥3,000 / 60 min ¥5,500</p>
+            <p class="mini-title">Online Interpretation &amp; Communication Support</p>
+            <p class="muted">オンライン医療通訳・説明補助</p>
+            <p class="body">
+              We provide online support to help you communicate more smoothly during clinic visits and pharmacy interactions.
+            </p>
+            <p class="muted" style="margin-top: 10px;">受診時や薬局利用時のオンラインでの説明補助・通訳補助です。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="section-label">Important Notice</p>
+        <h2 class="section-title">Please Read Before Contacting</h2>
+        <div class="card">
+          <p class="body">
+            This service does not provide diagnosis, treatment decisions, prescription changes, or emergency judgment.
+            If your symptoms are urgent or severe, please contact a medical institution or emergency service.
+          </p>
+          <p class="muted" style="margin-top: 14px;">
+            本サービスは、診断、治療方針の決定、処方変更の指示、緊急時対応の判断を行いません。
+            症状が強い場合や緊急性がある場合は、医療機関または救急相談窓口をご利用ください。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section section-white">
+      <div class="container">
+        <p class="section-label">FAQ</p>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+
+        <div class="faq-list">
+          <div class="card">
+            <p class="faq-q">Do you provide diagnosis or treatment decisions?</p>
+            <p class="body">
+              No. This service focuses on general information support, visit preparation, and communication support. It does not provide diagnosis, treatment decisions, prescription changes, or emergency judgment.
+            </p>
+          </div>
+
+          <div class="card">
+            <p class="faq-q">Who is this service for?</p>
+            <p class="body">
+              It is especially helpful for people who feel unsure about using clinics or pharmacies in Japan, or who want help preparing before a visit.
+            </p>
+          </div>
+
+          <div class="card">
+            <p class="faq-q">Which languages do you support?</p>
+            <p class="body">
+              Text support is available in Japanese, English, Korean, and Chinese. Live online support is mainly available in Japanese and English.
+            </p>
+          </div>
+
+          <div class="card">
+            <p class="faq-q">How can I contact you?</p>
+            <p class="body">
+              Please use the inquiry form on this website. After reviewing your message, we will guide you to the most suitable support.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-box">
+          <p class="section-label">Contact</p>
+          <h2 class="section-title" style="color: white; margin-bottom: 16px;">Get in Touch</h2>
+          <p class="section-sub" style="max-width: 760px;">
+            Please use the inquiry form to contact us. After reviewing your message, we will guide you to the most suitable support.
+          </p>
+          <p class="muted" style="margin-top: 10px;">
+            お問い合わせはフォームからお願いします。内容を確認のうえ、適したサポートをご案内します。
+          </p>
+
+          <div class="btn-row">
+            <a class="btn btn-primary" style="background: white; color: var(--accent);" href="https://tally.so/r/EkL8Jo" target="_blank" rel="noreferrer">Send Inquiry</a>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-card">
+              <p class="card-label" style="color:#cbd5e1;">Inquiry Form</p>
+              <p class="mini-title" style="color:white;">Name / Email / Preferred language / Type of support / Message</p>
+            </div>
+            <div class="contact-card">
+              <p class="card-label" style="color:#cbd5e1;">Language Support</p>
+              <p class="mini-title" style="color:white;">Text: JP / EN / KR / CN</p>
+              <p class="muted">Live online: JP / EN</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer-space"></div>
+  </main>
+</body>
+</html>

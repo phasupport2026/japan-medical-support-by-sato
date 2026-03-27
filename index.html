@@ -235,6 +235,64 @@
   backdrop-filter: blur(10px);
 }
 
+    .hero-panel {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.05);
+}
+
+.hero-panel-label {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 14px;
+}
+
+.hero-panel h3 {
+  font-size: 34px;
+  line-height: 1.18;
+  margin: 0 0 14px;
+  color: var(--text);
+}
+
+.hero-panel-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 0 0 22px;
+}
+
+.hero-panel-points {
+  display: grid;
+  gap: 12px;
+}
+
+.hero-point {
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #f8f8f6;
+  border: 1px solid var(--line);
+}
+
+.hero-point-title {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.hero-point-text {
+  display: block;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
     .card {
       background: var(--card);
       border: 1px solid var(--line);
@@ -466,28 +524,30 @@
           </div>
         </div>
 
-        <div class="hero-cards">
-          <div class="card">
-            <p class="card-label">Main Support</p>
-            <p class="card-title">Visit preparation / Medication explanation / Communication support</p>
-            <p class="card-text">受診前の準備・薬の説明・通訳補助</p>
-          </div>
+          <div class="hero-cards">
+  <div class="hero-panel">
+    <p class="hero-panel-label">For international patients and families</p>
+    <h3>Medical support in English and Japanese</h3>
+    <p class="hero-panel-text">
+      Support for clinic visits, prescriptions, medication questions, and communication with healthcare providers.
+    </p>
 
-          <div class="two-col">
-            <div class="card">
-              <p class="card-label">Area</p>
-              <p class="mini-title">Kanagawa / Tokyo</p>
-              <p class="card-text">Online support across Japan</p>
-            </div>
-            <div class="card">
-              <p class="card-label">Languages</p>
-              <p class="mini-title">JP / EN</p>
-              <p class="card-text">Text support: JP / EN / KR / CN</p>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="hero-panel-points">
+      <div class="hero-point">
+        <span class="hero-point-title">Support</span>
+        <span class="hero-point-text">Clinic visits / prescriptions / medical communication</span>
       </div>
+      <div class="hero-point">
+        <span class="hero-point-title">Languages</span>
+        <span class="hero-point-text">English / Japanese</span>
+      </div>
+      <div class="hero-point">
+        <span class="hero-point-title">Area</span>
+        <span class="hero-point-text">Yokohama / Tokyo area / online support</span>
+      </div>
+    </div>
+  </div>
+</div>
     </section>
 
     <section id="about" class="section section-white">

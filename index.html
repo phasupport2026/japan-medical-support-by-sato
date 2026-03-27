@@ -87,12 +87,29 @@
       padding: 72px 0 56px;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 32px;
-      align-items: center;
-    }
+.hero-visual-bg {
+  position: absolute;
+  right: 40px;                                    
+  top: 40px;
+  width: 340px;
+  max-width: 38%;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-inner {
+  position: relative;
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 32px;
+  align-items: center;
+}
 
     .pill {
       display: inline-block;
@@ -380,7 +397,9 @@
 
   <main>
     <section class="hero">
-      <div class="container hero-grid">
+  <div class="container hero-inner">
+    <img src="whitecoat-bg.png" alt="" class="hero-visual-bg">
+    <div class="hero-grid">
         <div>
           <span class="pill">Medical support for foreign residents in Japan</span>
           <h1>Making healthcare and pharmacy support in Japan easier to understand</h1>
@@ -414,6 +433,7 @@
               <p class="card-label">Languages</p>
               <p class="mini-title">JP / EN</p>
               <p class="card-text">Text support: JP / EN / KR / CN</p>
+              </div>
             </div>
           </div>
         </div>

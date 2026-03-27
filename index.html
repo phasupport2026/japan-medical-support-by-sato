@@ -84,24 +84,15 @@
     }
 
     .hero {
-      padding: 72px 0 56px;
-    }
-
-.hero-visual-bg {
-  position: absolute;
-  right: 10px;
-  top: 180px;
-  width: 520px;
-  max-width: 52%;
-  opacity: 0.32;
-  pointer-events: none;
-  z-index: 0;
+  padding: 72px 0 56px;
+  background-image:
+    linear-gradient(to right, rgba(247,245,242,0.96) 0%, rgba(247,245,242,0.96) 52%, rgba(247,245,242,0.78) 66%, rgba(247,245,242,0.96) 100%),
+    url("whitecoat-bg.png");
+  background-repeat: no-repeat;
+  background-position: right 110px center;
+  background-size: 430px auto;
 }
     
-.hero-inner {
-  position: relative;
-}
-
 .hero-grid {
   position: relative;
   z-index: 1;
@@ -397,10 +388,8 @@
 
   <main>
     <section class="hero">
-  <div class="container hero-inner">
-    <img src="whitecoat-bg.png" alt="" class="hero-visual-bg">
-    <div class="hero-grid">
-        <div>
+  <div class="container hero-grid">
+    <div>
           <span class="pill">Medical support for foreign residents in Japan</span>
           <h1>Making healthcare and pharmacy support in Japan easier to understand</h1>
           <p class="lead">
